@@ -1,0 +1,9 @@
+/* .limit-height clr-datagrid {
+    height: 456px;
+
+
+} */
+clr-datagrid {
+    padding-left: 5%;
+    padding-right: 5%;
+}

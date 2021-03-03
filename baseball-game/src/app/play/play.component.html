@@ -1,0 +1,24 @@
+<div *ngIf="config.phase==-1" class="class1">게임에 사용할 닉네임을 입력하세요.<br>
+  <form clrForm >
+    <clr-input-container>
+      <label>닉네임</label>
+      <input clrInput placeholder="여기에 입력" name="nickname" [(ngModel)]="nickname" />
+    </clr-input-container>
+    <button [clrLoading]="submitBtnState" type="submit" class="btn btn-primary" (click)="setNickname(nickname)">
+      <clr-icon shape="assign-user"></clr-icon> CREATE</button>
+  </form>
+</div>
+<div class="class1">
+  <div *ngIf="config.phase==0">
+    <button class="btn btn-primary" (click)="playGame2()" (keyup.enter)="playGame2()">
+        <clr-icon shape="play"></clr-icon> 숫자야구게임 START</button>
+  </div>
+  <div *ngIf="config.phase==2">정답을 맞추어 승리했습니다. <br><br>다시 플레이하시겠습니까?<br>
+    <button class="btn btn-primary" (click)="replayGame()">
+        <clr-icon shape="refresh"></clr-icon> Try Again</button>
+  </div>
+
+  <p *ngIf="config.phase==-2">{{status}}</p>
+
+  <app-select-num *ngIf="config.phase==1 || config.phase==2"></app-select-num>
+</div>

@@ -1,0 +1,33 @@
+<!-- (click) passes input value to add() and then clears the input -->
+<!--<div *ngIf="config.phase==1">
+0-9 중 서로 다른 세 수를 입력하세요(예: 012)<br>
+  <label>
+    <input id = "userInput" type="text" minlength="3" maxlength="3" #userInput (keyup.enter)="checkInput(userInput.value); userInput.value='';">
+  </label>
+  <button (click)="checkInput(userInput.value); userInput.value='';" > submit </button>
+</div>
+-->
+<div *ngIf="config.phase==1">컴퓨터가 수비수가 되어 숫자를 정했습니다. 
+  <br><br>0-9 중 서로 다른 세 수를 입력하여 공격하세요.
+  <br>(컴퓨터가 고른 숫자를 맞추세요.)
+  <form class="clrForm">
+    <div class="clr-form-control">
+      <label for="userInput" class="clr-control-label">공격(숫자 입력)</label>
+      <div class="clr-input-wrapper">
+        <input #userInput type="text" id="userInput" placeholder="ex. 012" class="clr-input">
+      </div>
+      <button type="submit" class="btn btn-outline" (click)="checkInput(userInput.value); userInput.value='';">
+        <clr-icon shape="check"></clr-icon> Submit</button>
+    </div>
+  </form>   
+</div>
+
+<div id="showResult" *ngIf="config.phase==1 || config.phase==2" >
+  <br>
+  <!-- <p class = "result" *ngFor="let message of messages">{{message}}</p> -->
+
+  <div *ngFor="let input of config.messages; let i = index;" >
+    <!-- <span *ngIf="(i+1)%2===0">*</span> -->
+    {{i+1}}번째 시도: {{input.num0}}{{input.num1}}{{input.num2}} > strike: {{input.strikeCnt}}, ball: {{input.ballCnt}}, out: {{input.outCnt}} ... {{input.msg}}
+  </div>
+</div>
