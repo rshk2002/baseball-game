@@ -1,6 +1,6 @@
 # coding: utf-8
 from flask import Flask, request, json
-from flask_restplus import fields, Resource, Api, namespace
+from flask_restx import fields, Resource, Api, Namespace
 from flask_cors import CORS
 
 import os
