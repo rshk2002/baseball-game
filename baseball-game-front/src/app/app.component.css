@@ -1,0 +1,31 @@
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #d7e3e6;
+  color: #333;
+}
+
+.app-header {
+  /* background-color: #000000; */
+  color: rgb(45, 45, 45);
+  padding: 0.5rem;
+}
+
+.app-content {
+  flex: 1;
+  padding: 24px;
+  background-color: #d7e3e6;
+  text-align: center;
+}
+
+.app-footer {
+  background-color: #d7e3e6;
+  text-align: center;
+  padding: 12px;
+  font-size: 14px;
+  color: #777;
+}
+
+

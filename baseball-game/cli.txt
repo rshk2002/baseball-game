@@ -1,5 +1,5 @@
 npm install -g @angular/cli
-ng new baseball-game-front
+ng new baseball-game
 
 npm i @angular/animations
 npm install @clr/ui @clr/angular @cds/core

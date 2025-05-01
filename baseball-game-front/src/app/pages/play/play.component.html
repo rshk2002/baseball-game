@@ -1,0 +1,48 @@
+<div class="container">
+  <!-- 닉네임 입력 단계 -->
+  <div *ngIf="step === 'nickname'" class="nickname-container">
+    <h2>🎮 게임을 시작하기 전에 닉네임을 입력해주세요</h2>
+
+    <input id="nickname" type="text" [(ngModel)]="nickname" placeholder="예: 야구왕123" class="nickname-input" />
+    <div>
+
+      <button class="start-button" [disabled]="!nickname.trim()" (click)="startGame()">
+        게임 시작
+      </button>
+    </div>
+  </div>
+
+
+  <!-- 게임 단계 -->
+  <div *ngIf="step === 'game'" class="game-stage">
+    <p><strong>{{ nickname }}</strong>님, 숫자 3자리를 입력해주세요</p>
+
+    <input
+      type="text"
+      maxlength="3"
+      [(ngModel)]="guess"
+      placeholder="예: 538"
+      class="guess-input"
+      [disabled]="gameEnded"
+    />
+  
+    <button (click)="submitGuess()" [disabled]="gameEnded || !guess.trim()">제출</button>
+  
+    <p *ngIf="resultMessage" class="result-text">{{ resultMessage }}</p>
+  
+    <div class="history-list" *ngIf="guessHistory.length > 0">
+      <h3>시도 내역</h3>
+      <ul>
+        <li *ngFor="let item of guessHistory">
+          {{ item.input }} → {{ item.result[0] }}S {{ item.result[1] }}B {{ item.result[2] }}O
+        </li>
+      </ul>
+    </div>
+  
+    <div *ngIf="gameEnded" class="game-finished">
+      <p>🎉 정답을 맞췄습니다!</p>
+      <button (click)="resetGame()">처음으로</button>
+    </div>
+  </div>
+
+</div>
