@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { User } from '../model/user';
 import { ConfigService } from '../config/config.service';
-import { isNullOrUndefined } from 'util';
 import { ClrDatagridSortOrder } from '@clr/angular';
 import { ClrDatagridStateInterface } from '@clr/angular';
 import { FetchResult, Inventory } from '../inventory/inventory';
@@ -10,7 +9,8 @@ import { FetchResult, Inventory } from '../inventory/inventory';
   selector: 'app-ranking',
   // providers: [Inventory],
   templateUrl: './ranking.component.html',
-  styleUrls: ['./ranking.component.css']
+  styleUrls: ['./ranking.component.css'],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class RankingComponent implements OnInit {
   updateTime = '';
@@ -38,6 +38,10 @@ export class RankingComponent implements OnInit {
     console.log('>>> ranking component ngOnInit');
   }
 
+  isNullOrUndefined(value: any): boolean {
+    return value === null || value === undefined;
+  }
+
   // 한번에 전체 통계 가져오기
   getStatsAll() {
     console.log('>>> getStatsAll()');
@@ -56,7 +60,7 @@ export class RankingComponent implements OnInit {
           user.winCnt = data[2];
           user.winTryCnt = data[3];
           user.tryCntAll = data[4];
-          if (isNullOrUndefined(data[5])) {
+          if (this.isNullOrUndefined(data[5])) {
             user.winTryAvg = data[5];
           } else {
             user.winTryAvg = +data[5].toFixed(1);

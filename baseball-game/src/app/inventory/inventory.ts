@@ -1,7 +1,5 @@
 import { User } from '../model/user';
 import { ConfigService } from '../config/config.service';
-import { strictEqual } from 'assert';
-import { isNullOrUndefined } from 'util';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -15,6 +13,10 @@ export class Inventory {
 
   constructor(private config: ConfigService) {
     console.log('>>> Inventory constructor');
+  }
+
+  private isNullOrUndefined(value: any): boolean {
+    return value === null || value === undefined;
   }
 
   // 한페이지 데이터 서버에서 가져오기
@@ -47,7 +49,7 @@ export class Inventory {
             user.winCnt = data[2];
             user.winTryCnt = data[3];
             user.tryCntAll = data[4];
-            if (isNullOrUndefined(data[5])) {
+            if (this.isNullOrUndefined(data[5])) {
               user.winTryAvg = data[5];
             } else {
               user.winTryAvg = +data[5].toFixed(1);

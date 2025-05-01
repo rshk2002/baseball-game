@@ -8,7 +8,7 @@
   <clr-dg-column>성공시 평균 시도횟수</clr-dg-column>
   <clr-dg-column>성공할 확률</clr-dg-column>
 
-  <clr-dg-placeholder>No users found</clr-dg-placeholder>
+  <cds-dg-placeholder>No users found</cds-dg-placeholder>
   
   <!--server-driven사용시 Smart Iterater 대신 ngFor 사용-->
   <clr-dg-row *ngFor="let user of users" [clrDgItem]="user">
@@ -20,10 +20,10 @@
     <clr-dg-cell>{{user.winRate}}</clr-dg-cell>
   </clr-dg-row>
 
-  <clr-dg-footer>
+  <cds-dg-footer>
     <clr-dg-pagination #pagination [clrDgTotalItems]="total">
       <clr-dg-page-size [clrPageSizeOptions]="[5,10,20,50,100]">Users per page</clr-dg-page-size>
       {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{total}} users
     </clr-dg-pagination>
-  </clr-dg-footer>
+  </cds-dg-footer>
 </clr-datagrid>

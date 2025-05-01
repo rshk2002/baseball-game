@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigService } from '../config/config.service';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-play',
+  standalone: true, // ✅ 추가
+  imports: [CommonModule, FormsModule],
   templateUrl: './play.component.html',
   styleUrls: ['./play.component.css']
 })
@@ -18,7 +23,7 @@ export class PlayComponent implements OnInit {
     sample: new FormControl('', Validators.required),
   });
 
-  constructor(private config: ConfigService) {}
+  constructor(public config: ConfigService) {}
 
   ngOnInit() {
     console.log('>>> play ngOnInit');

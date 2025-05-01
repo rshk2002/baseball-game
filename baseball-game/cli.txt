@@ -1,0 +1,6 @@
+npm install -g @angular/cli
+ng new baseball-game-front
+
+npm i @angular/animations
+npm install @clr/ui @clr/angular @cds/core
+npm install @clr/icons

@@ -2,24 +2,27 @@
 <header class="header-1">
   <div class="branding">
     <a routerLink='' class="nav-link">
-      <clr-icon shape="happy-face"></clr-icon>
+      <cds-icon shape="happy-face"></cds-icon>
       <span class="title">숫자야구게임</span>
     </a>
   </div>
   <div class="header-nav">
     <a routerLink='/home' routerLinkActive='active' class="nav-link nav-icon">
-      <clr-icon shape="home"></clr-icon>
+      <cds-icon shape="home"></cds-icon>
     </a>
     <a routerLink='/settings' routerLinkActive='active' class="nav-link nav-icon">
-      <clr-icon shape="cog"></clr-icon>
+      <cds-icon shape="cog"></cds-icon>
     </a>
   </div>
 </header>
 <nav class="subnav">
   <ul class="nav">
     <li *ngFor="let subLink of subLinks" class="nav-item">
-      <a class="nav-link" routerLinkActive='active' routerLink='{{subLink.link}}'>{{subLink.label}}</a>
+      <a class="nav-link" routerLinkActive='active' [routerLink]="subLink.link">{{subLink.label}}</a>
     </li>
   </ul>
 </nav>
+
+<a class="nav-link" routerLinkActive='active' routerLink="/play">play</a>
+
 <router-outlet></router-outlet>

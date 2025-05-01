@@ -6,7 +6,8 @@ import { Input } from '../model/input';
 import { User } from '../model/user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
+
 })
 export class ConfigService {
   private BASE_URL = environment.apiUrl;
