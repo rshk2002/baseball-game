@@ -1,6 +1,15 @@
 {
+  "builds": [
+    {
+      "src": "baseball-game-front/angular.json",
+      "use": "@vercel/angular"
+    }
+  ],
   "routes": [
-    { "handle": "filesystem" },
-    { "src": "/.*", "dest": "/index.html" }
-  ]
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "rootDirectory": "baseball-game-front"
 }
